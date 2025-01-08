@@ -7,8 +7,6 @@ Laravel Teams Notification is a package for sending notifications to Microsoft T
   <img src="assets/images/1.jpg" alt="Image 2" style="width:100%;">
 </p>
 
-
-
 ## Table of Contents
 
 - [Features](#features)
@@ -43,15 +41,16 @@ Laravel Teams Notification is a package for sending notifications to Microsoft T
 To install the package, you need PHP 7.0 or higher and Laravel 5.5 or later. Use Composer:
 
 ```bash
-composer require osa-eg/laravel-teams-notification
+composer require filasik/laravel-teams-notification:dev-main
 ```
 
-
-Then, add your Microsoft Teams webhook URL to your `.env` file:
+[REMOVED] Then, add your Microsoft Teams webhook URL to your `.env` file:
 
 ```env
 TEAMS_WEBHOOK_URL=your_teams_webhook_url
 ```
+
+SSL verification is automaticcally disabled in Gruzzle client
 
 ## Publishing Files
 
@@ -204,10 +203,11 @@ For a detailed guide on integrating Microsoft Teams notifications with your Lara
 
 [Streamlining Laravel Notifications with Microsoft Teams Workflow Integration](https://medium.com/@osama.96.eg/streamlining-laravel-notifications-with-microsoft-teams-workflow-integration-99b0e52cafe4)
 
-
 ## License
 
 This package is open-sourced software licensed under the [MIT license](LICENSE).
+
 ```
 
 This README now includes a Table of Contents section that links to different parts of the document for easier navigation.
+```
