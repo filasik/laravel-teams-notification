@@ -29,10 +29,16 @@ class TeamsNotification
 
     public function __construct($webhookUrl = null)
     {
+        // Prioritize passed webhook URL or get from config
         $this->webhookUrl = $webhookUrl ?: config('teams.webhook_url');
+
+        if (empty($this->webhookUrl)) {
+            throw new InvalidArgumentException('Teams webhook URL not configured in config/teams.php');
+        }
+
         $this->client = new Client([
             'verify' => false,
-        ]); // Initialize Guzzle client
+        ]);
     }
 
     // Method to set the color and allow chaining
