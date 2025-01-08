@@ -16,7 +16,13 @@ class TeamsNotification
 
     // Valid color options
     protected $validColors = [
-        "default", "dark", "light", "accent", "good", "warning", "attention"
+        "default",
+        "dark",
+        "light",
+        "accent",
+        "good",
+        "warning",
+        "attention"
     ];
 
     protected $client;
@@ -24,7 +30,9 @@ class TeamsNotification
     public function __construct($webhookUrl = null)
     {
         $this->webhookUrl = $webhookUrl ?: config('teams.webhook_url');
-        $this->client = new Client(); // Initialize Guzzle client
+        $this->client = new Client([
+            'verify' => false,
+        ]); // Initialize Guzzle client
     }
 
     // Method to set the color and allow chaining
@@ -123,7 +131,7 @@ class TeamsNotification
                             "items" => [
                                 [
                                     "type" => "TextBlock",
-                                    "text" => is_array($value)?json_encode($value,JSON_PRETTY_PRINT):$value,
+                                    "text" => is_array($value) ? json_encode($value, JSON_PRETTY_PRINT) : $value,
                                     "wrap" => true
                                 ]
                             ],
