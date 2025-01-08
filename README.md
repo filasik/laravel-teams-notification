@@ -173,7 +173,7 @@ The package also supports custom logging to Microsoft Teams. To set up custom lo
        'teams' => [
            'driver' => 'custom',
             'via' => \Osama\LaravelTeamsNotification\Logging\TeamsLoggingChannel::class,
-            'webhook_url' => env('TEAMS_WEBHOOK_URL'),
+            'webhook_url' => config('teams.webhook_url'),
         ],
    ```
 
