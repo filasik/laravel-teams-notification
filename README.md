@@ -36,7 +36,7 @@ Laravel Teams Notification is a package for sending notifications to Microsoft T
 - **Custom Logging**: Log messages directly to Microsoft Teams using Laravel’s logging system.
 - **Configurable Message Colors**: Set custom colors for messages with predefined options.
 
-## Installation
+## \* Installation
 
 To install the package, you need PHP 7.0 or higher and Laravel 5.5 or later. Use Composer:
 
@@ -44,23 +44,19 @@ To install the package, you need PHP 7.0 or higher and Laravel 5.5 or later. Use
 composer require filasik/laravel-teams-notification:dev-main
 ```
 
-[REMOVED] Then, add your Microsoft Teams webhook URL to your `.env` file:
-
-```env
-TEAMS_WEBHOOK_URL=your_teams_webhook_url
-```
-
-SSL verification is automaticcally disabled in Gruzzle client
-
 ## Publishing Files
 
-### Config
+### Config (not needed)
 
 To publish the config file included with this package to your Laravel project, run:
 
 ```bash
 php artisan vendor:publish --tag=laravel-teams-notification-config
 ```
+
+SSL verification is automaticcally disabled in Gruzzle client
+
+Goto Custom Logging section to see how to use custom logging and finish the setup \*[Custom Logging](#custom-logging)
 
 ## Usage
 
@@ -158,7 +154,7 @@ $data = [
 $notification->success()->sendJsonMessage($message, $data);
 ```
 
-## Custom Logging
+## \* Custom Logging
 
 The package also supports custom logging to Microsoft Teams. To set up custom logging, follow these steps:
 
@@ -173,7 +169,7 @@ The package also supports custom logging to Microsoft Teams. To set up custom lo
        'teams' => [
            'driver' => 'custom',
             'via' => \Osama\LaravelTeamsNotification\Logging\TeamsLoggingChannel::class,
-            'webhook_url' => config('teams.webhook_url'),
+            'webhook_url' => "webhook url",
         ],
    ```
 
